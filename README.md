@@ -19,6 +19,6 @@ O projeto ManagerFlix , tem como proposito colocar em prática todo o conhecimen
 
 Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
 
-* **Everton Fernando Cordeiro** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/Cordeiroeverton)
+* **Everton Fernando Cordeiro**  - [Everton Fernando Cordeiro](https://github.com/Cordeiroeverton)
 
 
