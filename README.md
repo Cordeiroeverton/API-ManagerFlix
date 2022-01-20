@@ -2,13 +2,9 @@
 
 O projeto ManagerFlix , tem como proposito colocar em prática todo o conhecimento adquirido na Beca NTT DATA. O ManagerFlix é um controle de séries e filmes, sendo cadastrados os titulos desejado e acompanhar o status se o titulo foi concluido ou ainda está em andamento.
 
+## Diagrama
 
-##  Diagrama
-
-[diagrama](https://i.imgur.com/Wpnb0lu.png)
-
-
-
+<img src="https://ik.imagekit.io/mqcofkwbshx/BecaDesafio_87JOvaZ8w.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1642700597356">
 
 ## 🛠️ Construído com
 
