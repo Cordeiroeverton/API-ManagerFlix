@@ -1,12 +1,14 @@
+package io.ordeiroeverton.managerflix;
+
 public class Titulos {
     
     private Integer id;
     private String  nome;
     private String  sinopse;
-    private integer temporadas;
+    private Integer temporadas;
     private String  epsodios;
     private double  duracao;
-    private Usuario PkIdUsuario;
+    private Usuarios PkIdUsuario;
     private Categoria PkIdCategoria;
     
     Titulos(){
@@ -37,10 +39,10 @@ public class Titulos {
     public void setSinopse(String sinopse) {
         this.sinopse = sinopse;
     }
-    public integer getTemporadas() {
+    public Integer getTemporadas() {
         return temporadas;
     }
-    public void setTemporadas(integer temporadas) {
+    public void setTemporadas(Integer temporadas) {
         this.temporadas = temporadas;
     }
     public String getEpsodios() {
@@ -55,10 +57,10 @@ public class Titulos {
     public void setDuracao(double duracao) {
         this.duracao = duracao;
     }
-    public Usuario getPkIdUsuario() {
+    public Usuarios getPkIdUsuario() {
         return PkIdUsuario;
     }
-    public void setPkIdUsuario(Usuario pkIdUsuario) {
+    public void setPkIdUsuario(Usuarios pkIdUsuario) {
         PkIdUsuario = pkIdUsuario;
     }
 

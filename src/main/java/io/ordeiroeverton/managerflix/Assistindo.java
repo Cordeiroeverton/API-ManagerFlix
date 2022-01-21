@@ -1,11 +1,13 @@
+package io.ordeiroeverton.managerflix;
+
 public class Assistindo {
     
     private  Integer id;
-    private  Titulos PkIdTemporadaTitulo;
-    private  Titulos PkIdEpsodioTitulo;
-    private  Titulos PkIdDuracaoTitulo;
+    private  Integer PkIdTemporadaTitulo;
+    private  Integer PkIdEpsodioTitulo;
+    private  Integer PkIdDuracaoTitulo;
     private  Integer Status;
-    private  Usuario PkIdUsuario;
+    private  Integer PkIdUsuario;
 
     public Assistindo(){
 

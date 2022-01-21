@@ -1,3 +1,5 @@
+package io.ordeiroeverton.managerflix;
+
 public class Usuarios {
     
     private Integer id;
