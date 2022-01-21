@@ -1,3 +1,5 @@
+package io.ordeiroeverton.managerflix.demo.Model;
+
 public class TitulosAssistidos {
     
     private Integer id;

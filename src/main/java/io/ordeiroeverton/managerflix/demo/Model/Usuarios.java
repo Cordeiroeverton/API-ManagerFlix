@@ -1,4 +1,4 @@
-package io.ordeiroeverton.managerflix;
+package io.ordeiroeverton.managerflix.demo.Model;
 
 public class Usuarios {
     
