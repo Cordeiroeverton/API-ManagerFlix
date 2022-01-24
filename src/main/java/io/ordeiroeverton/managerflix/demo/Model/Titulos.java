@@ -1,67 +1,76 @@
-package io.ordeiroeverton.managerflix;
+package io.ordeiroeverton.managerflix.demo.Model;
+
 
 public class Titulos {
     
-    private Integer id;
+    private long id;
     private String  nome;
     private String  sinopse;
     private Integer temporadas;
-    private String  epsodios;
-    private double  duracao;
-    private Usuarios PkIdUsuario;
-    private Categoria PkIdCategoria;
+    private Integer  epsodios;
+    private String  duracao;
+ 
+   public Titulos(){
+
+   }
+    public Titulos(Long id, String nome, String sinopse, Integer temporadas, Integer epsodios, String duracao){
+        this.id = id;
+        this.nome = nome;
+        this.sinopse = sinopse;
+        this.temporadas = temporadas;
+        this.epsodios = epsodios;
+        this.duracao = duracao;
     
-    Titulos(){
 
     }
-
-    public Categoria getPkIdCategoria() {
-        return PkIdCategoria;
-    }
-    public void setPkIdCategoria(Categoria pkIdCategoria) {
-        PkIdCategoria = pkIdCategoria;
-    }
-    public Integer getId() {
+    public long getId() {
         return id;
     }
-    public void setId(Integer id) {
-        this.id = id;
+
+    public void setId(long id2) {
+        this.id = id2;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getSinopse() {
         return sinopse;
     }
+
     public void setSinopse(String sinopse) {
         this.sinopse = sinopse;
     }
+
     public Integer getTemporadas() {
         return temporadas;
     }
+
     public void setTemporadas(Integer temporadas) {
         this.temporadas = temporadas;
     }
-    public String getEpsodios() {
+
+    public Integer getEpsodios() {
         return epsodios;
     }
-    public void setEpsodios(String epsodios) {
+
+    public void setEpsodios(Integer epsodios) {
         this.epsodios = epsodios;
     }
-    public double getDuracao() {
+
+    public String getDuracao() {
         return duracao;
     }
-    public void setDuracao(double duracao) {
+
+    public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
-    public Usuarios getPkIdUsuario() {
-        return PkIdUsuario;
-    }
-    public void setPkIdUsuario(Usuarios pkIdUsuario) {
-        PkIdUsuario = pkIdUsuario;
-    }
+
+
 
 }

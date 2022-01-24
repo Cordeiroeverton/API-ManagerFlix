@@ -2,53 +2,90 @@ package io.ordeiroeverton.managerflix.demo.Model;
 
 public class Assistindo {
     
-    private  Integer id;
-    private  Integer PkIdTemporadaTitulo;
-    private  Integer PkIdEpsodioTitulo;
-    private  Integer PkIdDuracaoTitulo;
-    private  Integer Status;
-    private  Integer PkIdUsuario;
+    private  Long id;
+    private String  nome;
+    private String  sinopse;
+    private Integer temporadas;
+    private Integer  epsodios;
+    private String  duracao;
+    private  String Status;
+
 
     public Assistindo(){
 
     }
 
-    public Integer getId() {
+
+    public Long getId() {
         return id;
     }
-    public void setId(Integer id) {
-        this.id = id;
+
+
+    public void setId(long l) {
+        this.id = l;
     }
-    public Integer getPkIdTemporadaTitulo() {
-        return PkIdTemporadaTitulo;
+
+
+    public String getNome() {
+        return nome;
     }
-    public void setPkIdTemporadaTitulo(Integer pkIdTemporadaTitulo) {
-        PkIdTemporadaTitulo = pkIdTemporadaTitulo;
+
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-    public Integer getPkIdEpsodioTitulo() {
-        return PkIdEpsodioTitulo;
+
+
+    public String getSinopse() {
+        return sinopse;
     }
-    public void setPkIdEpsodioTitulo(Integer pkIdEpsodioTitulo) {
-        PkIdEpsodioTitulo = pkIdEpsodioTitulo;
+
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
     }
-    public Integer getPkIdDuracaoTitulo() {
-        return PkIdDuracaoTitulo;
+
+
+    public Integer getTemporadas() {
+        return temporadas;
     }
-    public void setPkIdDuracaoTitulo(Integer pkIdDuracaoTitulo) {
-        PkIdDuracaoTitulo = pkIdDuracaoTitulo;
+
+
+    public void setTemporadas(Integer temporadas) {
+        this.temporadas = temporadas;
     }
-    public Integer getStatus() {
+
+
+    public Integer getEpsodios() {
+        return epsodios;
+    }
+
+
+    public void setEpsodios(Integer epsodios) {
+        this.epsodios = epsodios;
+    }
+
+
+    public String getDuracao() {
+        return duracao;
+    }
+
+
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
+    }
+
+
+    public String getStatus() {
         return Status;
     }
-    public void setStatus(Integer status) {
+
+
+    public void setStatus(String status) {
         Status = status;
     }
-    public Integer getPkIdUsuario() {
-        return PkIdUsuario;
-    }
-    public void setPkIdUsuario(Integer pkIdUsuario) {
-        PkIdUsuario = pkIdUsuario;
-    }
+
+
 
     
 }
