@@ -2,18 +2,18 @@ package io.ordeiroeverton.managerflix.demo.Model;
 
 public class Usuarios {
     
-    private Integer id;
+    private long id;
     private String nome;
 
-    Usuarios(){
+    public Usuarios(){
         
     }
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
-    public void setId(Integer id) {
-        this.id = id;
+    public long setId(long id) {
+        return this.id = id;
     }
     public String getNome() {
         return nome;

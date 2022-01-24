@@ -2,25 +2,90 @@ package io.ordeiroeverton.managerflix.demo.Model;
 
 public class TitulosAssistidos {
     
-    private Integer id;
-    private Assistindo PkIdAssistindo;
+    private  Long id;
+    private String  nome;
+    private String  sinopse;
+    private Integer temporadas;
+    private Integer  epsodios;
+    private String  duracao;
+    private String Status;
 
-    TitulosAssistidos(){
+
+    public TitulosAssistidos(){
 
     }
-    
-    public Integer getId() {
+
+
+    public Long getId() {
         return id;
     }
-    public void setId(Integer id) {
-        this.id = id;
+
+
+    public Long setId(Long id) {
+        return this.id = id;
     }
-    public Assistindo getPkIdAssistindo() {
-        return PkIdAssistindo;
+
+
+    public String getNome() {
+        return nome;
     }
-    public void setPkIdAssistindo(Assistindo pkIdAssistindo) {
-        PkIdAssistindo = pkIdAssistindo;
+
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+
+    public Integer getTemporadas() {
+        return temporadas;
+    }
+
+
+    public void setTemporadas(Integer temporadas) {
+        this.temporadas = temporadas;
+    }
+
+
+    public Integer getEpsodios() {
+        return epsodios;
+    }
+
+
+    public void setEpsodios(Integer epsodios) {
+        this.epsodios = epsodios;
+    }
+
+
+    public String getDuracao() {
+        return duracao;
+    }
+
+
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
+    }
+
+
+    public String getStatus() {
+        return Status;
+    }
+
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+    
+
 
     
 
