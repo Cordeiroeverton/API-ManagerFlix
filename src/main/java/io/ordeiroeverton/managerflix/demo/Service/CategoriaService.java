@@ -1,9 +1,10 @@
 package io.ordeiroeverton.managerflix.demo.Service;
 
 import java.util.List;
-
+import org.springframework.stereotype.Service;
 import io.ordeiroeverton.managerflix.demo.Model.Categorias;
 
+@Service
 public class CategoriaService {
     
     public Categorias cadastrarCategoria( Categorias categoria ){
