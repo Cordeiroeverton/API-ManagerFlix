@@ -15,8 +15,6 @@ O projeto ManagerFlix , tem como proposito colocar em prática todo o conhecimen
 Para realziar testes da API é necessário que uma aplicação cliente que faça requisições aos endpoints usando ferramenta Postman  ou Insomnia por meio do envio de requisições HTTP e obter retorno.
 
 
-Para testes da API é necessário que uma aplicação cliente que faça requisições aos *endpoints* da ferramenta ou mesmo uma aplicação como o [Postman](https://www.getpostman.com/downloads/) (uma ferramenta que tem como objetivo testar serviços RESTful (Web APIs) por meio do envio de requisições HTTP e da análise do seu retorno.).
-
 | Requisições                                  | Descrição                                                    |
 | -------------------------------------------- | ------------------------------------------------------------ |
 | POST `/titulos/cadastrar`                      | Cadastra Titulos novos.|
