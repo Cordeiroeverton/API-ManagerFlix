@@ -1,11 +1,11 @@
-package io.ordeiroeverton.managerflix.demo.Model; 
+package io.ordeiroeverton.managerflix.demo.models;
 
-public class Categorias {
+public class Usuarios {
 
     private long id;
     private String nome;
 
-    public Categorias(){
+    public Usuarios() {
 
     }
 
@@ -13,7 +13,7 @@ public class Categorias {
         return id;
     }
 
-    public  Long setId(long id) {
+    public long setId(long id) {
         return this.id = id;
     }
 
@@ -25,5 +25,4 @@ public class Categorias {
         this.nome = nome;
     }
 
-    
 }

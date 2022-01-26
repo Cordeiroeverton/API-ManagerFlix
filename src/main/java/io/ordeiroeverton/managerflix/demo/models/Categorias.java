@@ -1,26 +1,28 @@
-package io.ordeiroeverton.managerflix.demo.Model;
+package io.ordeiroeverton.managerflix.demo.models;
 
-public class Usuarios {
-    
+public class Categorias {
+
     private long id;
     private String nome;
 
-    public Usuarios(){
-        
+    public Categorias() {
+
     }
 
     public long getId() {
         return id;
     }
-    public long setId(long id) {
+
+    public Long setId(long id) {
         return this.id = id;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    
 }

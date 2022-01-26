@@ -1,32 +1,13 @@
-package io.ordeiroeverton.managerflix.demo.Service;
+package io.ordeiroeverton.managerflix.demo.mocks;
 
 import java.util.List;
-import org.springframework.stereotype.Service;
-import io.ordeiroeverton.managerflix.demo.Model.TitulosAssistidos;
 
-@Service
-public class TitulosAssistidosService {
-    
-    public TitulosAssistidos obterTtituloAssistido(Long id){ 
+import io.ordeiroeverton.managerflix.demo.models.TitulosAssistidos;
 
-        TitulosAssistidos titulosAssistidos = new TitulosAssistidos();
-        titulosAssistidos.setId(id);
-
-        return titulosAssistidos;
-    }
-
-    public TitulosAssistidos atualizarTitulosAssistido( TitulosAssistidos titulosAssistidos, long id){
-        
-        titulosAssistidos.setId(id);
-       
-        return titulosAssistidos;
-    }
-
-
-    public List<TitulosAssistidos> listarTitulosAssistidos(){
-
+public class MockTitulosAssistidos {
+    public List<TitulosAssistidos> listarTitulosAssistidos() {
         TitulosAssistidos suits = new TitulosAssistidos();
-        
+
         suits.setId((long) 349);
         suits.setNome("IT Crowd");
         suits.setSinopse("Descrição do Titulo");
@@ -34,7 +15,6 @@ public class TitulosAssistidosService {
         suits.setEpsodios(98);
         suits.setDuracao("43:00");
         suits.setStatus("Concluido");
-        
 
         var supernatural = new TitulosAssistidos();
 
@@ -45,8 +25,7 @@ public class TitulosAssistidosService {
         supernatural.setEpsodios(234);
         supernatural.setDuracao("43:00");
         supernatural.setStatus("Concluido");
-       
-      
+
         var breakingBad = new TitulosAssistidos();
 
         breakingBad.setId((long) 349);
@@ -58,14 +37,8 @@ public class TitulosAssistidosService {
         breakingBad.setStatus("Concluido");
 
         return List.of(
-            suits,
-            supernatural,
-            breakingBad
-        ); 
+                suits,
+                supernatural,
+                breakingBad);
     }
-
-    public void deletarTtitulsoAssistidos( long id){
-      //
-    }
-
 }

@@ -1,4 +1,4 @@
-package io.ordeiroeverton.managerflix.demo.Controllers;
+package io.ordeiroeverton.managerflix.demo.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import io.ordeiroeverton.managerflix.demo.Model.Titulos;
-import io.ordeiroeverton.managerflix.demo.Service.TitulosService;
 
+import io.ordeiroeverton.managerflix.demo.models.Titulos;
+import io.ordeiroeverton.managerflix.demo.services.TitulosService;
 
 @RestController
 @RequestMapping("titulos")
@@ -21,31 +21,31 @@ public class TitulosController {
 
     @Autowired
     private TitulosService titulosService;
-    
+
     @PostMapping("cadastrar")
-    public ResponseEntity<Titulos> cadastrar(@RequestBody Titulos titulos ){
-        
+    public ResponseEntity<Titulos> cadastrar(@RequestBody Titulos titulos) {
+
         Titulos tituloCadastrar = titulosService.cadastrar(titulos);
 
         return ResponseEntity.created(null).body(tituloCadastrar);
     }
 
     @GetMapping("obter/{id}")
-    public ResponseEntity<Titulos>obter(@PathVariable  Long id){ 
+    public ResponseEntity<Titulos> obter(@PathVariable Long id) {
 
         return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("atualizar/{id}")
-    public ResponseEntity<Titulos> atualizar(@RequestBody Titulos titulos, @PathVariable long id){
-        
-        Titulos titutulosAtualizado = TitulosService.atualizar(titulos,id);
+    public ResponseEntity<Titulos> atualizar(@RequestBody Titulos titulos, @PathVariable long id) {
+
+        Titulos titutulosAtualizado = TitulosService.atualizar(titulos, id);
 
         return ResponseEntity.ok(titutulosAtualizado);
     }
 
     @GetMapping
-    public ResponseEntity<List<Titulos>> listar(){
+    public ResponseEntity<List<Titulos>> listar() {
 
         List<Titulos> listarTitulos = TitulosService.listar();
 
@@ -53,7 +53,7 @@ public class TitulosController {
     }
 
     @DeleteMapping("deletar/{id}")
-    public ResponseEntity<Object> deletar(@PathVariable long id){
+    public ResponseEntity<Object> deletar(@PathVariable long id) {
 
         TitulosService.deletar(id);
 
