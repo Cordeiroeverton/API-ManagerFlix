@@ -53,7 +53,7 @@ public class UsuariosController {
         return ResponseEntity.ok(listarUsuarios);
     }
 
-    @DeleteMapping("eletarUsuarios/{id}")
+    @DeleteMapping("deletarUsuarios/{id}")
     public ResponseEntity<Object> deletarUsuarios(@PathVariable long id){
 
         usuariosService.deletarUsuarios(id);
