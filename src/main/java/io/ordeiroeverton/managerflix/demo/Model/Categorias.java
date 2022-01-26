@@ -1,11 +1,11 @@
 package io.ordeiroeverton.managerflix.demo.Model; 
 
-public class Categoria {
+public class Categorias {
 
     private long id;
     private String nome;
 
-    public Categoria(){
+    public Categorias(){
 
     }
 

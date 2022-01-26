@@ -1,7 +1,8 @@
 package io.ordeiroeverton.managerflix.demo.Controllers;
 
 import java.util.List;
-import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,60 +12,51 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import io.ordeiroeverton.managerflix.demo.Model.Categoria;
+
+import io.ordeiroeverton.managerflix.demo.Model.Categorias;
+import io.ordeiroeverton.managerflix.demo.Service.CategoriaService;
 
 @RestController
 @RequestMapping("categoria")
 public class CategoriaController {
+
+    @Autowired
+    private CategoriaService categoriaService;
     
     @PostMapping("cadastrar")
-    public ResponseEntity<Categoria> cadastrarCategoria(@RequestBody Categoria categoria ){
+    public ResponseEntity<Categorias> cadastrarCategoria(@RequestBody Categorias categoria ){
 
-            Random geraId = new Random();
-            categoria.setId(geraId.nextLong());
-          
-        return ResponseEntity.created(null).body(categoria);
+        Categorias categorias = categoriaService.cadastrarCategoria(categoria);
+
+        return ResponseEntity.created(null).body(categorias);
     }
 
     @GetMapping("obter/{id}")
-    public ResponseEntity<Categoria>obterCategoria(@PathVariable  Long id){ 
+    public ResponseEntity<Categorias>obterCategoria(@PathVariable  Long id){ 
         return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("atualizar/{id}")
-    public ResponseEntity<Categoria> atualizarCategoria(@RequestBody Categoria categoria, @PathVariable long id){
-        categoria.setId(id);
-       
-        return ResponseEntity.ok(categoria);
+    public ResponseEntity<Categorias> atualizarCategoria(@RequestBody Categorias categorias, @PathVariable long id){
+
+        Categorias categoriasAtualizadas = categoriaService.atualizarCategoria(categorias, id);
+
+        return ResponseEntity.ok(categoriasAtualizadas);
     }
 
     @GetMapping
-    public ResponseEntity<List<Categoria>> listarCategoria(){
+    public ResponseEntity<List<Categorias>> listarCategoria(){
 
-        Categoria Comedia = new Categoria();
-        
-        Comedia.setId(34);
-        Comedia.setNome("Comédia");
+       List<Categorias> listarCategorias = categoriaService.listarCategoria();
 
-        var Aventura = new Categoria();
-
-        Aventura.setId(23);
-        Aventura.setNome("Aventura");
-      
-        var Acao = new Categoria();
-
-        Acao.setId(67);
-        Acao.setNome("Ação");
-
-        return ResponseEntity.ok(List.of(
-            Comedia,
-            Aventura,
-            Acao
-        )); 
+        return ResponseEntity.ok(listarCategorias);
     }
 
     @DeleteMapping("deletar/{id}")
     public ResponseEntity<Object> deletarCategoria(@PathVariable long id){
+
+        categoriaService.deletarCategoria(id);
+
         return ResponseEntity.noContent().build();
     }
 
