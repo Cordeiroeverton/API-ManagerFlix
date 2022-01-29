@@ -1,5 +1,6 @@
 package io.ordeiroeverton.managerflix.demo.models;
 
+
 public class Usuarios {
 
     private long id;

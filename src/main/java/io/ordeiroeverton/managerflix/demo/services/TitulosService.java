@@ -1,14 +1,13 @@
 package io.ordeiroeverton.managerflix.demo.services;
 
-import org.springframework.stereotype.Service;
-
 import io.ordeiroeverton.managerflix.demo.mocks.MockTitulos;
 import io.ordeiroeverton.managerflix.demo.models.Titulos;
-
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
 public class TitulosService {
+
 
     public Titulos cadastrar(Titulos titulos) {
 

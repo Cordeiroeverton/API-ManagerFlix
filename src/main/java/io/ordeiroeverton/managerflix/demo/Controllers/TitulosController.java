@@ -30,6 +30,7 @@ public class TitulosController {
         return ResponseEntity.created(null).body(tituloCadastrar);
     }
 
+
     @GetMapping("obter/{id}")
     public ResponseEntity<Titulos> obter(@PathVariable Long id) {
 

@@ -1,5 +1,7 @@
 package io.ordeiroeverton.managerflix.demo.models;
 
+
+
 public class TitulosAssistidos {
 
     private Long id;
