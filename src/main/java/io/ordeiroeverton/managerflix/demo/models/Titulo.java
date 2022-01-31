@@ -3,51 +3,25 @@ package io.ordeiroeverton.managerflix.demo.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-//import javax.persistence.Column;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.Table;
-
 
 @Entity
-public class Titulos {
+public class Titulo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private long id;
-
-   // @Column(name ="nome")
     private String nome;
-
-    //@Column(name ="sinopse")
     private String sinopse;
-
-    //@Column(name ="temporadas")
     private Integer temporadas;
-
-    //@Column(name ="epsodios")
     private Integer epsodios;
-
-    //@Column(name ="duracao")
     private String duracao;
 
-
-    public Titulos() {
-
-    }
-/*
-    public Titulos( String nome, String sinopse, Integer temporadas, Integer epsodios, String duracao) {
-        
-        this.nome = nome;
-        this.sinopse = sinopse;
-        this.temporadas = temporadas;
-        this.epsodios = epsodios;
-        this.duracao = duracao;
+    public Titulo() {
 
     }
 
-    */
     public long getId() {
         return id;
     }

@@ -1,7 +1,12 @@
 package io.ordeiroeverton.managerflix.demo.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Assistindo {
 
+    @Id
     private Long id;
     private String nome;
     private String sinopse;

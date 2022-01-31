@@ -1,8 +1,6 @@
 package io.ordeiroeverton.managerflix.demo.models;
 
-
-
-public class TitulosAssistidos {
+public class TituloAssistido {
 
     private Long id;
     private String nome;
@@ -12,7 +10,7 @@ public class TitulosAssistidos {
     private String duracao;
     private String Status;
 
-    public TitulosAssistidos() {
+    public TituloAssistido() {
 
     }
 
