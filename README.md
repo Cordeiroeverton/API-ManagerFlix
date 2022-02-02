@@ -45,6 +45,10 @@ Para realziar testes da API é necessário que uma aplicação cliente que faça
 * [Java](http://www.dropwizard.io/1.0.2/docs/) - Linguagem usada
 * [Springbot](https://maven.apache.org/) - Framework usado
 
+* [DTO](https://maven.apache.org/) - Objeto de Transferência de Dados (do inglês, Data transfer object, ou simplesmente DTO
+
+* [BANCO DE DADOS H2](https://maven.apache.org/) - H2 é um sistema de gerenciamento de banco de dados relacional escrito em Java. Ele pode ser incorporado em aplicativos Java ou executado no modo cliente-servidor.
+
 ## ✒️ Autor
 
 * **Everton Fernando Cordeiro**  - [Everton Fernando Cordeiro](https://github.com/Cordeiroeverton)
