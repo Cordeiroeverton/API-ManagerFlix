@@ -1,3 +1,4 @@
+
 package io.ordeiroeverton.managerflix.demo.models;
 
 public class TituloAssistido {
@@ -71,3 +72,4 @@ public class TituloAssistido {
     }
 
 }
+

@@ -1,5 +1,7 @@
 package io.ordeiroeverton.managerflix.demo.services;
 
+import io.ordeiroeverton.managerflix.demo.dtos.request.PostTituloRequest;
+import io.ordeiroeverton.managerflix.demo.dtos.response.PostTituloResponse;
 import io.ordeiroeverton.managerflix.demo.models.Titulo;
 import io.ordeiroeverton.managerflix.demo.repository.TituloRepository;
 import java.util.List;
@@ -13,11 +15,23 @@ public class TituloService {
     @Autowired
     private TituloRepository tituloRepository;
 
-    public Titulo cadastrar(Titulo titulos) {
+    public PostTituloResponse cadastrar(PostTituloRequest postTituloRequest) {
 
-        Titulo tituloCadastrado = tituloRepository.save(titulos);
+        Titulo titulo = new Titulo();
 
-        return tituloCadastrado;
+        titulo.setNome(postTituloRequest.getNome());
+        titulo.setSinopse(postTituloRequest.getSinopse());
+        titulo.setTemporadas(postTituloRequest.getTemporadas());
+        titulo.setEpsodios(postTituloRequest.getEpsodios());
+        titulo.setDuracao(postTituloRequest.getDuracao());
+
+        Titulo tituloCriado = tituloRepository.save( titulo);
+
+        PostTituloResponse postTituloResponse = new PostTituloResponse();
+        postTituloResponse.setTituloCadastrado(tituloCriado.getId());
+        postTituloResponse.setMensagem("Titulo cadastrado com sucesso.");
+
+        return postTituloResponse;
     }
 
     public Titulo obter(Long id) {

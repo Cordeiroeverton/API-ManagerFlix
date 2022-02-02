@@ -1,8 +1,7 @@
+
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import java.util.List;
-
-//import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.ordeiroeverton.managerflix.demo.dtos.request.PostCategoriaRequest;
+import io.ordeiroeverton.managerflix.demo.dtos.response.PostCategoriaResponse;
 import io.ordeiroeverton.managerflix.demo.models.Categoria;
 import io.ordeiroeverton.managerflix.demo.services.CategoriaService;
 
@@ -24,11 +26,11 @@ public class CategoriaController {
     private CategoriaService categoriaService;
 
     @PostMapping("cadastrar")
-    public ResponseEntity<Categoria> cadastrarCategoria(@RequestBody Categoria categoria) {
+    public ResponseEntity<PostCategoriaResponse> cadastrarCategoria(@RequestBody PostCategoriaRequest postCategoriaRequest) {
 
-        Categoria categorias = categoriaService.cadastrarCategoria(categoria);
+        PostCategoriaResponse postCategoriaResponse = categoriaService.cadastrarCategoria(postCategoriaRequest);
 
-        return ResponseEntity.created(null).body(categorias);
+       return ResponseEntity.created(null).body(postCategoriaResponse);
     }
 
     @GetMapping("obter/{id}")

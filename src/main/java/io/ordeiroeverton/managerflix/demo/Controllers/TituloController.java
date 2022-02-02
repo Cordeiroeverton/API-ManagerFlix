@@ -1,7 +1,6 @@
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,7 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import io.ordeiroeverton.managerflix.demo.dtos.request.PostTituloRequest;
+import io.ordeiroeverton.managerflix.demo.dtos.response.PostTituloResponse;
 import io.ordeiroeverton.managerflix.demo.models.Titulo;
 import io.ordeiroeverton.managerflix.demo.services.TituloService;
 
@@ -24,11 +24,11 @@ public class TituloController {
     private TituloService titulosService;
 
     @PostMapping("cadastrar")
-    public ResponseEntity<Titulo> cadastrar(@RequestBody Titulo titulos) {
+    public ResponseEntity<PostTituloResponse> cadastrar(@RequestBody PostTituloRequest posttTituloRequest) {
 
-        Titulo tituloCadastrar = titulosService.cadastrar(titulos);
+        PostTituloResponse postTituloResponse = titulosService.cadastrar(posttTituloRequest);
 
-        return ResponseEntity.created(null).body(tituloCadastrar);
+        return ResponseEntity.created(null).body(postTituloResponse);
     }
 
     @GetMapping("obter/{id}")
