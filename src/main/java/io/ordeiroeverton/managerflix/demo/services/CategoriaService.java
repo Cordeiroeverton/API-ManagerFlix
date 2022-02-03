@@ -2,10 +2,8 @@
 package io.ordeiroeverton.managerflix.demo.services;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import io.ordeiroeverton.managerflix.demo.dtos.request.PostCategoriaRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostCategoriaResponse;
 import io.ordeiroeverton.managerflix.demo.models.Categoria;
@@ -27,37 +25,27 @@ public class CategoriaService {
 
         PostCategoriaResponse postCategoriaResponse = new PostCategoriaResponse();
         postCategoriaResponse.setNome(categoriaCadastrada.getNome());
-        postCategoriaResponse.setMesnagem("Categoria cadastrada.");
+        postCategoriaResponse.setMensagem("Categoria cadastrada.");
 
         return postCategoriaResponse;
     }
 
     public Categoria obterCategoria(Long id) {
-
-        Categoria obterCategorias = categoriaRepository.findById(id).get();
-
-        return obterCategorias;
+        return categoriaRepository.findById(id).get();
     }
 
     public Categoria atualizarCategoria(Categoria categorias, long id) {
         Categoria atualizarCategorias = this.obterCategoria(id);
-
         atualizarCategorias.setNome(categorias.getNome());
 
-        categoriaRepository.save(categorias);
-
-        return categorias;
+        return  categoriaRepository.save(categorias);
     }
 
     public List<Categoria> listarCategoria() {
-
-        List<Categoria> listarCategoria = categoriaRepository.findAll();
-
-        return listarCategoria;
+        return categoriaRepository.findAll();
     }
 
     public void deletarCategoria(long id) {
         categoriaRepository.deleteById(id);
-
     }
 }

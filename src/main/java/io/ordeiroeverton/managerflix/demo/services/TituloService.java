@@ -5,7 +5,6 @@ import io.ordeiroeverton.managerflix.demo.dtos.response.PostTituloResponse;
 import io.ordeiroeverton.managerflix.demo.models.Titulo;
 import io.ordeiroeverton.managerflix.demo.repository.TituloRepository;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +24,7 @@ public class TituloService {
         titulo.setEpsodios(postTituloRequest.getEpsodios());
         titulo.setDuracao(postTituloRequest.getDuracao());
 
-        Titulo tituloCriado = tituloRepository.save( titulo);
+        Titulo tituloCriado = tituloRepository.save(titulo);
 
         PostTituloResponse postTituloResponse = new PostTituloResponse();
         postTituloResponse.setTituloCadastrado(tituloCriado.getId());
@@ -35,10 +34,7 @@ public class TituloService {
     }
 
     public Titulo obter(Long id) {
-
-        Titulo titulosObtido = tituloRepository.findById(id).get();
-
-        return titulosObtido;
+        return tituloRepository.findById(id).get();
     }
 
     public Titulo atualizar(Titulo titulos, long id) {
@@ -51,20 +47,14 @@ public class TituloService {
         titulosAtualizados.setEpsodios(titulos.getEpsodios());
         titulosAtualizados.setDuracao(titulos.getDuracao());
 
-        tituloRepository.save(titulosAtualizados);
-
-        return titulosAtualizados;
+        return tituloRepository.save(titulosAtualizados);
     }
 
     public List<Titulo> listar() {
-
-        List<Titulo> tituloslistados = tituloRepository.findAll();
-
-        return tituloslistados;
+        return tituloRepository.findAll();
     }
 
     public void deletar(long id) {
         tituloRepository.deleteById(id);
     }
-
 }

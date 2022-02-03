@@ -10,7 +10,6 @@ public class Titulo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private long id;
     private String nome;
     private String sinopse;

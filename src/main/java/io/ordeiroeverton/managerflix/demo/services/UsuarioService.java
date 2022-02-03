@@ -3,7 +3,6 @@ package io.ordeiroeverton.managerflix.demo.services;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import io.ordeiroeverton.managerflix.demo.dtos.request.PostUsuarioRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostUsuarioResponse;
 import io.ordeiroeverton.managerflix.demo.models.Usuario;
@@ -30,32 +29,22 @@ public class UsuarioService {
     }
 
     public Usuario obterUsuarios(Long id) {
-
-        Usuario obterUsuario = usuarioRepository.findById(id).get();
-
-        return obterUsuario;
+        return usuarioRepository.findById(id).get();
     }
 
     public Usuario atualizarUsuarios(Usuario usuarios, long id) {
 
-        Usuario usaurioAtualizado = this.obterUsuarios(id);
+        Usuario usuarioAtualizado = this.obterUsuarios(id);
+        usuarioAtualizado.setNome(usuarios.getNome());
 
-        usaurioAtualizado.setNome(usuarios.getNome());
-
-        usuarioRepository.save(usuarios);
-
-        return usuarios;
+        return  usuarioRepository.save(usuarios);
     }
 
     public List<Usuario> listarUsuarios() {
-
-        List<Usuario> listarUsuarios = usuarioRepository.findAll();
-
-        return listarUsuarios;
+        return usuarioRepository.findAll();
     }
 
     public void deletarUsuarios(long id) {
         usuarioRepository.deleteById(id);
-
     }
 }

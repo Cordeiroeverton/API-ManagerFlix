@@ -14,35 +14,22 @@ public class AssistindoService {
     private AssistindoRepository assistindoRepository;
 
     public Assistindo obter(Long id) {
-
-        Assistindo obterAssistido = assistindoRepository.findById(id).get();
-
-        return obterAssistido;
+        return assistindoRepository.findById(id).get();
     }
 
     public Assistindo mudarStatus(Assistindo assistindo, long id) {
 
         Assistindo assistindoStatus = this.obter(id);
-        assistindoStatus.setNome(assistindo.getNome());
-        assistindoStatus.setSinopse(assistindo.getSinopse());
-        assistindoStatus.setTemporadas(assistindo.getTemporadas());
-        assistindoStatus.setEpsodios(assistindo.getEpsodios());
-        assistindoStatus.setDuracao(assistindo.getDuracao());
+        assistindoStatus.setStatus(assistindo.getStatus());
 
-        assistindoRepository.save(assistindoStatus);
-
-        return assistindoStatus;
+        return assistindoRepository.save(assistindoStatus);
     }
 
     public List<Assistindo> listarAssistindo() {
-
-        List<Assistindo> listarAssistindo = assistindoRepository.findAll();
-
-        return listarAssistindo;
+        return assistindoRepository.findAll();
     }
 
     public void deletar(long id) {
         assistindoRepository.deleteById(id);
     }
-
 }
