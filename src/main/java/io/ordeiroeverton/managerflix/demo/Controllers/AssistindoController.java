@@ -1,7 +1,7 @@
 package io.ordeiroeverton.managerflix.demo.controllers;
 
-import java.util.List;
 import org.springframework.http.ResponseEntity;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +20,13 @@ public class AssistindoController {
     @Autowired
     private AssistindoService assistindoService;
 
+
     @GetMapping("obter/{id}")
     public ResponseEntity<Assistindo> obter(@PathVariable Long id) {
 
-        return ResponseEntity.noContent().build();
+        Assistindo obterAssistindo = assistindoService.obter(id);
+
+        return ResponseEntity.ok(obterAssistindo);
     }
 
     @PatchMapping("mudarStatus/{id}")

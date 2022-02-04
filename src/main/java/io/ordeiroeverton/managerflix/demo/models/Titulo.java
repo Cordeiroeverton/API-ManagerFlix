@@ -1,25 +1,33 @@
 package io.ordeiroeverton.managerflix.demo.models;
 
-public class TitulosAssistidos {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    private Long id;
+@Entity
+public class Titulo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+
+    private long id;
     private String nome;
     private String sinopse;
     private Integer temporadas;
     private Integer epsodios;
     private String duracao;
-    private String Status;
 
-    public TitulosAssistidos() {
+    public Titulo() {
 
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public Long setId(Long id) {
-        return this.id = id;
+    public void setId(long id2) {
+        this.id = id2;
     }
 
     public String getNome() {
@@ -60,14 +68,6 @@ public class TitulosAssistidos {
 
     public void setDuracao(String duracao) {
         this.duracao = duracao;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String status) {
-        Status = status;
     }
 
 }

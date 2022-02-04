@@ -1,41 +1,51 @@
 package io.ordeiroeverton.managerflix.demo.services;
 
 import java.util.List;
-import org.springframework.stereotype.Service;
 
-import io.ordeiroeverton.managerflix.demo.mocks.MockCategoria;
-import io.ordeiroeverton.managerflix.demo.models.Categorias;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import io.ordeiroeverton.managerflix.demo.models.Categoria;
+import io.ordeiroeverton.managerflix.demo.repository.CategoriaRepository;
 
 @Service
 public class CategoriaService {
 
-    public Categorias cadastrarCategoria(Categorias categoria) {
+    @Autowired
+    private CategoriaRepository categoriaRepository;
 
-        return categoria;
+    public Categoria cadastrarCategoria(Categoria categoria) {
+
+        Categoria cadastrarCategoria = categoriaRepository.save(categoria);
+
+        return cadastrarCategoria;
     }
 
-    public Categorias obterCategoria(Long id) {
+    public Categoria obterCategoria(Long id) {
 
-        Categorias categorias = new Categorias();
-        categorias.setId(id);
+        Categoria obterCategorias = categoriaRepository.findById(id).get();
+
+        return obterCategorias;
+    }
+
+    public Categoria atualizarCategoria(Categoria categorias, long id) {
+        Categoria  atualizarCategorias = this.obterCategoria(id);
+
+        atualizarCategorias.setNome(categorias.getNome());
+
+        categoriaRepository.save(categorias);
 
         return categorias;
     }
 
-    public Categorias atualizarCategoria(Categorias categorias, long id) {
-        categorias.setId(id);
+    public List<Categoria> listarCategoria() {
 
-        return categorias;
+        List<Categoria> listarCategoria = categoriaRepository.findAll();
+
+        return listarCategoria;
     }
 
-    public List<Categorias> listarCategoria() {
+    public void deletarCategoria(long id) {    
+        categoriaRepository.deleteById(id);
 
-        MockCategoria categoriaLista = new MockCategoria();
-
-        return categoriaLista.listarCategorias();
-    }
-
-    public void deletarCategoria(long id) {
-        //
     }
 }

@@ -1,6 +1,7 @@
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,42 +13,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.ordeiroeverton.managerflix.demo.models.Titulos;
-import io.ordeiroeverton.managerflix.demo.services.TitulosService;
+import io.ordeiroeverton.managerflix.demo.models.Titulo;
+import io.ordeiroeverton.managerflix.demo.services.TituloService;
 
 @RestController
 @RequestMapping("titulos")
-public class TitulosController {
+public class TituloController {
 
     @Autowired
-    private TitulosService titulosService;
+    private TituloService titulosService;
 
     @PostMapping("cadastrar")
-    public ResponseEntity<Titulos> cadastrar(@RequestBody Titulos titulos) {
+    public ResponseEntity<Titulo> cadastrar(@RequestBody Titulo titulos) {
 
-        Titulos tituloCadastrar = titulosService.cadastrar(titulos);
+        Titulo tituloCadastrar = titulosService.cadastrar(titulos);
 
         return ResponseEntity.created(null).body(tituloCadastrar);
     }
 
     @GetMapping("obter/{id}")
-    public ResponseEntity<Titulos> obter(@PathVariable Long id) {
+    public ResponseEntity<Titulo> obter(@PathVariable Long id) {
 
-        return ResponseEntity.noContent().build();
+        Titulo titulosObtidos = titulosService.obter(id);
+
+        return ResponseEntity.ok(titulosObtidos);
     }
 
     @PatchMapping("atualizar/{id}")
-    public ResponseEntity<Titulos> atualizar(@RequestBody Titulos titulos, @PathVariable long id) {
+    public ResponseEntity<Titulo> atualizar(@RequestBody Titulo titulos, @PathVariable long id) {
 
-        Titulos titutulosAtualizado = TitulosService.atualizar(titulos, id);
+        Titulo titutulosAtualizado = titulosService.atualizar(titulos, id);
 
         return ResponseEntity.ok(titutulosAtualizado);
     }
 
     @GetMapping
-    public ResponseEntity<List<Titulos>> listar() {
+    public ResponseEntity<List<Titulo>> listar() {
 
-        List<Titulos> listarTitulos = TitulosService.listar();
+        List<Titulo> listarTitulos = titulosService.listar();
 
         return ResponseEntity.ok(listarTitulos);
     }
@@ -55,7 +58,7 @@ public class TitulosController {
     @DeleteMapping("deletar/{id}")
     public ResponseEntity<Object> deletar(@PathVariable long id) {
 
-        TitulosService.deletar(id);
+        titulosService.deletar(id);
 
         return ResponseEntity.noContent().build();
     }

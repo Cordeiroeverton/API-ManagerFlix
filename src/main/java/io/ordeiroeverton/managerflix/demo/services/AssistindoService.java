@@ -1,38 +1,47 @@
 package io.ordeiroeverton.managerflix.demo.services;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import io.ordeiroeverton.managerflix.demo.mocks.MockAssistindo;
 import io.ordeiroeverton.managerflix.demo.models.Assistindo;
+import io.ordeiroeverton.managerflix.demo.repository.AssistindoRepository;
 
 @Service
 public class AssistindoService {
 
+    @Autowired
+    private AssistindoRepository assistindoRepository;
+
     public Assistindo obter(Long id) {
 
-        Assistindo assistindo = new Assistindo();
-        assistindo.setId(id);
+        Assistindo obterAssistido = assistindoRepository.findById(id).get();
 
-        return assistindo;
+        return obterAssistido;
     }
 
     public Assistindo mudarStatus(Assistindo assistindo, long id) {
 
-        assistindo.setId(id);
+        Assistindo assistindoStatus = this.obter(id);
+        assistindoStatus.setNome(assistindo.getNome());
+        assistindoStatus.setSinopse(assistindo.getSinopse());
+        assistindoStatus.setTemporadas(assistindo.getTemporadas());
+        assistindoStatus.setEpsodios(assistindo.getEpsodios());
+        assistindoStatus.setDuracao(assistindo.getDuracao());
 
-        return assistindo;
+        assistindoRepository.save(assistindoStatus);
+
+        return assistindoStatus;
     }
 
     public List<Assistindo> listarAssistindo() {
 
-        MockAssistindo assistindoLista = new MockAssistindo();
+        List<Assistindo> listarAssistindo = assistindoRepository.findAll();
 
-        return assistindoLista.listarAssistindo();
+        return listarAssistindo;
     }
 
     public void deletar(long id) {
-        //
+        assistindoRepository.deleteById(id);
     }
 
 }

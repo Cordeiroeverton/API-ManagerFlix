@@ -10,38 +10,37 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import io.ordeiroeverton.managerflix.demo.models.TitulosAssistidos;
-import io.ordeiroeverton.managerflix.demo.services.TitulosAssistidosService;
+import io.ordeiroeverton.managerflix.demo.models.TituloAssistido;
+import io.ordeiroeverton.managerflix.demo.services.TituloAssistidosService;
 
 @RestController
 @RequestMapping("assistidos")
-public class TitulosAssistidoController {
+public class TituloAssistidoController {
 
     @Autowired
-    private TitulosAssistidosService titulosAssistidosService;
+    private TituloAssistidosService titulosAssistidosService;
 
     @GetMapping("obterTtituloAssistido/{id}")
-    public ResponseEntity<TitulosAssistidos> obterTtituloAssistido(@PathVariable Long id) {
+    public ResponseEntity<TituloAssistido> obterTtituloAssistido(@PathVariable Long id) {
         return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("atualizarTitulosAssistido/{id}")
-    public ResponseEntity<TitulosAssistidos> atualizarTitulosAssistido(@RequestBody TitulosAssistidos titulosAssistidos,
+    public ResponseEntity<TituloAssistido> atualizarTitulosAssistido(@RequestBody TituloAssistido titulosAssistidos,
             @PathVariable long id) {
 
-        TitulosAssistidos assistidosAtualizado = titulosAssistidosService.atualizarTitulosAssistido(titulosAssistidos,
+        TituloAssistido assistidosAtualizado = titulosAssistidosService.atualizarTitulosAssistido(titulosAssistidos,
                 id);
 
         return ResponseEntity.ok(assistidosAtualizado);
     }
 
     @GetMapping
-    public ResponseEntity<List<TitulosAssistidos>> listarTitulosAssistidos() {
+    public ResponseEntity<List<TituloAssistido>> listarTitulosAssistidos() {
 
-        List<TitulosAssistidos> listarAssistidos = titulosAssistidosService.listarTitulosAssistidos();
+        List<TituloAssistido> listarTitulosAssistidos = titulosAssistidosService.listarTitulosAssistidos();
 
-        return ResponseEntity.ok(listarAssistidos);
+        return ResponseEntity.ok(listarTitulosAssistidos);
     }
 
     @DeleteMapping("deletar/{id}")

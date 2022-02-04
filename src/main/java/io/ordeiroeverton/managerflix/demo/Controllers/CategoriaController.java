@@ -1,6 +1,8 @@
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import java.util.List;
+
+//import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import io.ordeiroeverton.managerflix.demo.models.Categorias;
+import io.ordeiroeverton.managerflix.demo.models.Categoria;
 import io.ordeiroeverton.managerflix.demo.services.CategoriaService;
 
 @RestController
@@ -22,30 +24,33 @@ public class CategoriaController {
     private CategoriaService categoriaService;
 
     @PostMapping("cadastrar")
-    public ResponseEntity<Categorias> cadastrarCategoria(@RequestBody Categorias categoria) {
+    public ResponseEntity<Categoria> cadastrarCategoria(@RequestBody Categoria categoria) {
 
-        Categorias categorias = categoriaService.cadastrarCategoria(categoria);
+        Categoria categorias = categoriaService.cadastrarCategoria(categoria);
 
         return ResponseEntity.created(null).body(categorias);
     }
 
     @GetMapping("obter/{id}")
-    public ResponseEntity<Categorias> obterCategoria(@PathVariable Long id) {
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Categoria> obterCategoria(@PathVariable Long id) {
+
+        Categoria categoriaObtida = categoriaService.obterCategoria(id);
+
+        return ResponseEntity.ok(categoriaObtida);
     }
 
     @PatchMapping("atualizar/{id}")
-    public ResponseEntity<Categorias> atualizarCategoria(@RequestBody Categorias categorias, @PathVariable long id) {
+    public ResponseEntity<Categoria> atualizarCategoria(@RequestBody Categoria categorias, @PathVariable long id) {
 
-        Categorias categoriasAtualizadas = categoriaService.atualizarCategoria(categorias, id);
+        Categoria categoriasAtualizadas = categoriaService.atualizarCategoria(categorias, id);
 
         return ResponseEntity.ok(categoriasAtualizadas);
     }
 
     @GetMapping
-    public ResponseEntity<List<Categorias>> listarCategoria() {
+    public ResponseEntity<List<Categoria>> listarCategoria() {
 
-        List<Categorias> listarCategorias = categoriaService.listarCategoria();
+        List<Categoria> listarCategorias = categoriaService.listarCategoria();
 
         return ResponseEntity.ok(listarCategorias);
     }

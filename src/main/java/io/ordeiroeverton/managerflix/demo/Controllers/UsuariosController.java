@@ -11,43 +11,44 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import io.ordeiroeverton.managerflix.demo.models.Usuarios;
-import io.ordeiroeverton.managerflix.demo.services.UsuariosService;
+import io.ordeiroeverton.managerflix.demo.models.Usuario;
+import io.ordeiroeverton.managerflix.demo.services.UsuarioService;
 
 @RestController
 @RequestMapping("usuarios")
 public class UsuariosController {
 
     @Autowired
-    private UsuariosService usuariosService;
+    private UsuarioService usuariosService;
 
     @PostMapping("cadastrarUsuarios")
-    public ResponseEntity<Usuarios> cadastrarUsuarios(@RequestBody Usuarios usuarios) {
+    public ResponseEntity<Usuario> cadastrarUsuarios(@RequestBody Usuario usuarios) {
 
-        Usuarios usuariosCadastrar = usuariosService.cadastrarUsuarios(usuarios);
+        Usuario usuariosCadastrar = usuariosService.cadastrarUsuarios(usuarios);
 
         return ResponseEntity.created(null).body(usuariosCadastrar);
     }
 
     @GetMapping("obterUsuarios/{id}")
-    public ResponseEntity<Usuarios> obterUsuarios(@PathVariable Long id) {
+    public ResponseEntity<Usuario> obterUsuarios(@PathVariable Long id) {
 
-        return ResponseEntity.noContent().build();
+        Usuario obterUsuario = usuariosService.obterUsuarios(id);
+
+        return ResponseEntity.ok(obterUsuario);
     }
 
     @PatchMapping("atualizarUsuarios/{id}")
-    public ResponseEntity<Usuarios> atualizarUsuarios(@RequestBody Usuarios usuarios, @PathVariable long id) {
+    public ResponseEntity<Usuario> atualizarUsuarios(@RequestBody Usuario usuarios, @PathVariable long id) {
 
-        Usuarios usuariosAtualizados = usuariosService.atualizarUsuarios(usuarios, id);
+        Usuario usuariosAtualizados = usuariosService.atualizarUsuarios(usuarios, id);
 
         return ResponseEntity.ok(usuariosAtualizados);
     }
 
     @GetMapping
-    public ResponseEntity<List<Usuarios>> listarUsuarios() {
+    public ResponseEntity<List<Usuario>> listarUsuarios() {
 
-        List<Usuarios> listarUsuarios = usuariosService.listarUsuarios();
+        List<Usuario> listarUsuarios = usuariosService.listarUsuarios();
 
         return ResponseEntity.ok(listarUsuarios);
     }
