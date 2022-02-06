@@ -1,8 +1,8 @@
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,17 +15,17 @@ import io.ordeiroeverton.managerflix.demo.dtos.request.PostTituloRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostTituloResponse;
 import io.ordeiroeverton.managerflix.demo.models.Titulo;
 import io.ordeiroeverton.managerflix.demo.services.TituloService;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("titulos")
 public class TituloController {
-
-    @Autowired
-    private TituloService titulosService;
+  
+    private final TituloService titulosService;
 
     @PostMapping("cadastrar")
-    public ResponseEntity<PostTituloResponse> cadastrar(@RequestBody PostTituloRequest posttTituloRequest) {
-
+    public ResponseEntity<PostTituloResponse> cadastrar(@RequestBody @Validated PostTituloRequest posttTituloRequest) {
         PostTituloResponse postTituloResponse = titulosService.cadastrar(posttTituloRequest);
 
         return ResponseEntity.created(null).body(postTituloResponse);
@@ -33,7 +33,6 @@ public class TituloController {
 
     @GetMapping("obter/{id}")
     public ResponseEntity<Titulo> obter(@PathVariable Long id) {
-
         Titulo titulosObtidos = titulosService.obter(id);
 
         return ResponseEntity.ok(titulosObtidos);
@@ -41,7 +40,6 @@ public class TituloController {
 
     @PatchMapping("atualizar/{id}")
     public ResponseEntity<Titulo> atualizar(@RequestBody Titulo titulos, @PathVariable long id) {
-
         Titulo titutulosAtualizado = titulosService.atualizar(titulos, id);
 
         return ResponseEntity.ok(titutulosAtualizado);
@@ -49,7 +47,6 @@ public class TituloController {
 
     @GetMapping
     public ResponseEntity<List<Titulo>> listar() {
-
         List<Titulo> listarTitulos = titulosService.listar();
 
         return ResponseEntity.ok(listarTitulos);
@@ -57,10 +54,8 @@ public class TituloController {
 
     @DeleteMapping("deletar/{id}")
     public ResponseEntity<Object> deletar(@PathVariable long id) {
-
         titulosService.deletar(id);
 
         return ResponseEntity.noContent().build();
     }
-
 }

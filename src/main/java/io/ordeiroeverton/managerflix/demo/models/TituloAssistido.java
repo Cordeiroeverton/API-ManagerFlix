@@ -1,12 +1,12 @@
-
 package io.ordeiroeverton.managerflix.demo.models;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class TituloAssistido {
 
@@ -18,67 +18,15 @@ public class TituloAssistido {
     private Integer temporadas;
     private Integer epsodios;
     private String duracao;
-    private String Status;
+    private String status;
 
-    public TituloAssistido() {
-
+    public TituloAssistido(TituloAssistido tituloAssistido) {
+        this.id = tituloAssistido.getId();
+        this.nome = tituloAssistido.getNome();
+        this.sinopse = tituloAssistido.getSinopse();
+        this.temporadas = tituloAssistido.getTemporadas();
+        this.epsodios = tituloAssistido.getEpsodios();
+        this.duracao = tituloAssistido.getDuracao();
+        this.status = tituloAssistido.getStatus();
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Long setId(Long id) {
-        return this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSinopse() {
-        return sinopse;
-    }
-
-    public void setSinopse(String sinopse) {
-        this.sinopse = sinopse;
-    }
-
-    public Integer getTemporadas() {
-        return temporadas;
-    }
-
-    public void setTemporadas(Integer temporadas) {
-        this.temporadas = temporadas;
-    }
-
-    public Integer getEpsodios() {
-        return epsodios;
-    }
-
-    public void setEpsodios(Integer epsodios) {
-        this.epsodios = epsodios;
-    }
-
-    public String getDuracao() {
-        return duracao;
-    }
-
-    public void setDuracao(String duracao) {
-        this.duracao = duracao;
-    }
-
-    public String getStatus() {
-        return Status;
-    }
-
-    public void setStatus(String status) {
-        Status = status;
-    }
-
 }
-

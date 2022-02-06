@@ -1,31 +1,31 @@
 package io.ordeiroeverton.managerflix.demo.services;
 
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import io.ordeiroeverton.managerflix.demo.dtos.request.PostUsuarioRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostUsuarioResponse;
+import io.ordeiroeverton.managerflix.demo.mappers.MapperUsuarioRequestToUsuario;
+import io.ordeiroeverton.managerflix.demo.mappers.MapperUsuarioToUsuarioResponse;
 import io.ordeiroeverton.managerflix.demo.models.Usuario;
 import io.ordeiroeverton.managerflix.demo.repository.UsuarioRepository;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Service
 public class UsuarioService {
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+    private final UsuarioRepository usuarioRepository;
+    private final MapperUsuarioRequestToUsuario mapperUsuarioRequestToUsuario;
+    private final MapperUsuarioToUsuarioResponse mapperUsuarioToUsuarioResponse;
 
-    public PostUsuarioResponse cadastrarUsuarios(PostUsuarioRequest postUsuarioRequest) {
+    public PostUsuarioResponse cadastrarUsuarios(PostUsuarioRequest postUsuarioRequest) {  
+        Usuario usuario =  mapperUsuarioRequestToUsuario.toModel(postUsuarioRequest); 
+        
+         usuarioRepository.save(usuario);
 
-        Usuario usuarios = new Usuario();
-        usuarios.setNome(postUsuarioRequest.getNome());
+        PostUsuarioResponse usuarioResponse =  mapperUsuarioToUsuarioResponse.toResponse(usuario);
 
-        Usuario usuarioCriado = usuarioRepository.save(usuarios);
-
-        PostUsuarioResponse postUsuarioResponse = new PostUsuarioResponse();
-        postUsuarioResponse.setNome(usuarioCriado.getNome());
-        postUsuarioResponse.setMensagem("Usuario Cadastrado");
-
-        return postUsuarioResponse;
+        return usuarioResponse; 
     }
 
     public Usuario obterUsuarios(Long id) {
@@ -33,7 +33,6 @@ public class UsuarioService {
     }
 
     public Usuario atualizarUsuarios(Usuario usuarios, long id) {
-
         Usuario usuarioAtualizado = this.obterUsuarios(id);
         usuarioAtualizado.setNome(usuarios.getNome());
 

@@ -1,27 +1,13 @@
 package io.ordeiroeverton.managerflix.demo.dtos.response;
 
+import io.ordeiroeverton.managerflix.demo.dtos.request.PostUsuarioRequest;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
 public class PostUsuarioResponse {
+    private Long id;
+    private PostUsuarioRequest nome;
 
-   
-    private String nome;
-    private String mensagem;
-
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public String getMensagem() {
-        return mensagem;
-    }
-    public void setMensagem(String mensagem) {
-        this.mensagem = mensagem;
-    }
-  
-
-
-
-    
-    
 }

@@ -1,9 +1,7 @@
-
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import org.springframework.http.ResponseEntity;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -13,18 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.ordeiroeverton.managerflix.demo.models.Assistindo;
 import io.ordeiroeverton.managerflix.demo.services.AssistindoService;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("assistindo")
 public class AssistindoController {
 
-    @Autowired
-    private AssistindoService assistindoService;
-
+    private final AssistindoService assistindoService;
 
     @GetMapping("obter/{id}")
     public ResponseEntity<Assistindo> obter(@PathVariable Long id) {
-
         Assistindo obterAssistindo = assistindoService.obter(id);
 
         return ResponseEntity.ok(obterAssistindo);
@@ -39,7 +36,6 @@ public class AssistindoController {
 
     @GetMapping
     public ResponseEntity<List<Assistindo>> listarAssistindo() {
-
         List<Assistindo> listarAssistindo = assistindoService.listarAssistindo();
 
         return ResponseEntity.ok(listarAssistindo);
@@ -47,10 +43,8 @@ public class AssistindoController {
 
     @DeleteMapping("deletar/{id}")
     public ResponseEntity<Object> deletar(@PathVariable long id) {
-
         assistindoService.deletar(id);
 
         return ResponseEntity.noContent().build();
     }
 }
-

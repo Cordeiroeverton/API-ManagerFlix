@@ -31,7 +31,7 @@ Para realziar testes da API é necessário que uma aplicação cliente que faça
 | GET `/usuarios/obterUsuarios/2`    | Retorna uma lista com usuário pelo id. |
 | PATCH `/usuarios/atualizarUsuarios/39`    | Retorna  um usuário atualiado pelo id. |
 | DELETE `/usuarios/deletarUsuarios/231`    | Retorna usuario deletado atraves do id. |
-| GET `/assistidos/obterTtituloAssistido/2`    | Retorna uma lista titulo  já assistido atraves do id. |
+| GET `/assistidos/obterTituloAssistido/2`    | Retorna uma lista titulo  já assistido atraves do id. |
 | PATCH `/assistidos/atualizarTitulosAssistido/8`    | Retorna  titulo atualizado   atraves do id. |
 | GET `/assistidos`    | Retorna uma lista com todos os titulos já assistidos. |
 | DELETE `/assistidos/deletar/2`    | Retorna uma titulo já assistido deletado atrás do id. |
