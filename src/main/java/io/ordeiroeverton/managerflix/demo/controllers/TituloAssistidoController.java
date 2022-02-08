@@ -1,3 +1,4 @@
+
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import java.util.List;
@@ -52,3 +53,4 @@ public class TituloAssistidoController {
     }
 
 }
+

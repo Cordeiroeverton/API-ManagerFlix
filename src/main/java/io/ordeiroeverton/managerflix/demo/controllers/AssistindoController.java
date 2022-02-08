@@ -1,3 +1,4 @@
+
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import org.springframework.http.ResponseEntity;
@@ -52,3 +53,4 @@ public class AssistindoController {
         return ResponseEntity.noContent().build();
     }
 }
+

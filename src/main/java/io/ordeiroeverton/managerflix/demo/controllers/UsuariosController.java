@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.ordeiroeverton.managerflix.demo.dtos.request.PostUsuarioRequest;
+import io.ordeiroeverton.managerflix.demo.dtos.response.PostUsuarioResponse;
 import io.ordeiroeverton.managerflix.demo.models.Usuario;
 import io.ordeiroeverton.managerflix.demo.services.UsuarioService;
 
@@ -22,11 +25,11 @@ public class UsuariosController {
     private UsuarioService usuariosService;
 
     @PostMapping("cadastrarUsuarios")
-    public ResponseEntity<Usuario> cadastrarUsuarios(@RequestBody Usuario usuarios) {
+    public ResponseEntity<PostUsuarioResponse> cadastrarUsuarios(@RequestBody PostUsuarioRequest postUsuarioRequest) {
 
-        Usuario usuariosCadastrar = usuariosService.cadastrarUsuarios(usuarios);
+        PostUsuarioResponse postUsuarioResponse = usuariosService.cadastrarUsuarios(postUsuarioRequest);
 
-        return ResponseEntity.created(null).body(usuariosCadastrar);
+        return ResponseEntity.created(null).body(postUsuarioResponse);
     }
 
     @GetMapping("obterUsuarios/{id}")
