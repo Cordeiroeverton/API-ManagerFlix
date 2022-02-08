@@ -1,23 +1,14 @@
-
 package io.ordeiroeverton.managerflix.demo.dtos.response;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
 public class PostCategoriaResponse {
     
+    private long id;
     private String nome;
-    private String Mensagem;
-    
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public String getMensagem() {
-        return Mensagem;
-    }
-    public void setMensagem(String Mensagem) {
-        this.Mensagem = Mensagem;
-    }
+    private String mensagem;
 
-    
 }

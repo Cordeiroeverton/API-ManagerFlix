@@ -1,14 +1,13 @@
 package io.ordeiroeverton.managerflix.demo.dtos.request;
 
+import javax.validation.constraints.NotBlank;
+import lombok.Data;
+
+@Data
 public class PostUsuarioRequest {
-    private String nome;
 
-    public String getNome() {
-        return nome;
-    }
+    private Long id;
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
+    @NotBlank(message = "Campo nome necessário ser preenchido.")
+    private PostUsuarioRequest nome;
 }

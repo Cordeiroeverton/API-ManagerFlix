@@ -4,7 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class Titulo {
 
@@ -17,56 +19,12 @@ public class Titulo {
     private Integer epsodios;
     private String duracao;
 
-    public Titulo() {
-
+    public Titulo (Titulo titulo){
+        this.id = titulo.getId();
+        this.nome = titulo.getNome();
+        this.sinopse = titulo.getSinopse();
+        this.temporadas = titulo.getTemporadas();
+        this.epsodios = titulo.getEpsodios();
+        this.duracao = titulo.getDuracao();
     }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id2) {
-        this.id = id2;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSinopse() {
-        return sinopse;
-    }
-
-    public void setSinopse(String sinopse) {
-        this.sinopse = sinopse;
-    }
-
-    public Integer getTemporadas() {
-        return temporadas;
-    }
-
-    public void setTemporadas(Integer temporadas) {
-        this.temporadas = temporadas;
-    }
-
-    public Integer getEpsodios() {
-        return epsodios;
-    }
-
-    public void setEpsodios(Integer epsodios) {
-        this.epsodios = epsodios;
-    }
-
-    public String getDuracao() {
-        return duracao;
-    }
-
-    public void setDuracao(String duracao) {
-        this.duracao = duracao;
-    }
-
 }
