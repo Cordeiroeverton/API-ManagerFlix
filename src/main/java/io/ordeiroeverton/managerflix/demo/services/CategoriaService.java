@@ -1,6 +1,8 @@
 package io.ordeiroeverton.managerflix.demo.services;
 
 import java.util.List;
+
+import io.ordeiroeverton.managerflix.demo.exceptions.TamanhoNaoValidoException;
 import org.springframework.stereotype.Service;
 import io.ordeiroeverton.managerflix.demo.dtos.request.PostCategoriaRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostCategoriaResponse;
@@ -19,13 +21,14 @@ public class CategoriaService {
     private final MapperCategoriaToCategoriaResponse mapperCategoriaToCategoriaResponse;
 
     public PostCategoriaResponse cadastrarCategoria(PostCategoriaRequest postCategoriaRequest) {
+        if (postCategoriaRequest.getNome().length() < 10) {
+            throw new TamanhoNaoValidoException("Nome de categoria muito longo.");
+        }
         Categoria categoria = mapperCategoriaRequestCategoria.toModel(postCategoriaRequest);
         
         categoriaRepository.save(categoria);
 
-        PostCategoriaResponse categoriaResponse = mapperCategoriaToCategoriaResponse.toResponse(categoria);
-        
-        return  categoriaResponse;
+        return mapperCategoriaToCategoriaResponse.toResponse(categoria);
     }
 
     public Categoria obterCategoria(Long id) {

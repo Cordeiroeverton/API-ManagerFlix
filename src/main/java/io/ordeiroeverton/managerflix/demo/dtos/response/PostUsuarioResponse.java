@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class PostUsuarioResponse {
     private Long id;
-    private PostUsuarioRequest nome;
+    private String nome;
 
 }

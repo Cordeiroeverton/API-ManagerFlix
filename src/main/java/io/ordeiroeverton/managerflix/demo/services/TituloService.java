@@ -2,6 +2,7 @@ package io.ordeiroeverton.managerflix.demo.services;
 
 import io.ordeiroeverton.managerflix.demo.dtos.request.PostTituloRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostTituloResponse;
+import io.ordeiroeverton.managerflix.demo.exceptions.TamanhoNaoValidoException;
 import io.ordeiroeverton.managerflix.demo.mappers.MapperTituloRequestToTitulo;
 import io.ordeiroeverton.managerflix.demo.mappers.MapperTituloToTituloResponse;
 import io.ordeiroeverton.managerflix.demo.models.Titulo;
@@ -19,13 +20,15 @@ public class TituloService {
     private final MapperTituloToTituloResponse mapperTituloToTituloResponse;
 
     public PostTituloResponse cadastrar(PostTituloRequest postTituloRequest) {
+        if(postTituloRequest.getNome().length() < 20) {
+            throw new TamanhoNaoValidoException("O nome não pode ser muito longo.");
+        }
+
         Titulo titulo = mapperTituloRequestToTitulo.toModel(postTituloRequest);
 
         tituloRepository.save(titulo);
 
-        PostTituloResponse tituloResponse = mapperTituloToTituloResponse.toResponse(titulo);
-  
-        return tituloResponse;
+        return mapperTituloToTituloResponse.toResponse(titulo);
     }
 
     public Titulo obter(Long id) {

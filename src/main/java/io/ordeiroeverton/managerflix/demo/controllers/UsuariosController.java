@@ -1,8 +1,8 @@
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,17 +15,18 @@ import io.ordeiroeverton.managerflix.demo.dtos.request.PostUsuarioRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostUsuarioResponse;
 import io.ordeiroeverton.managerflix.demo.models.Usuario;
 import io.ordeiroeverton.managerflix.demo.services.UsuarioService;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("usuarios")
 public class UsuariosController {
 
-    private final UsuarioService usuariosService;
+    @Autowired
+    private UsuarioService usuariosService;
 
     @PostMapping("cadastrarUsuarios")
-    public ResponseEntity<PostUsuarioResponse> cadastrarUsuarios(@RequestBody @Validated PostUsuarioRequest postUsuarioRequest) {
+    public ResponseEntity<PostUsuarioResponse> cadastrarUsuarios(@RequestBody @Valid PostUsuarioRequest postUsuarioRequest) {
 
         PostUsuarioResponse postUsuarioResponse = usuariosService.cadastrarUsuarios(postUsuarioRequest);
 

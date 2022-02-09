@@ -1,6 +1,8 @@
 package io.ordeiroeverton.managerflix.demo.services;
 
 import java.util.List;
+
+import io.ordeiroeverton.managerflix.demo.exceptions.TamanhoNaoValidoException;
 import org.springframework.stereotype.Service;
 import io.ordeiroeverton.managerflix.demo.dtos.request.PostUsuarioRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostUsuarioResponse;
@@ -18,14 +20,15 @@ public class UsuarioService {
     private final MapperUsuarioRequestToUsuario mapperUsuarioRequestToUsuario;
     private final MapperUsuarioToUsuarioResponse mapperUsuarioToUsuarioResponse;
 
-    public PostUsuarioResponse cadastrarUsuarios(PostUsuarioRequest postUsuarioRequest) {  
-        Usuario usuario =  mapperUsuarioRequestToUsuario.toModel(postUsuarioRequest); 
-        
+    public PostUsuarioResponse cadastrarUsuarios(PostUsuarioRequest postUsuarioRequest) {
+        if (postUsuarioRequest.getNome().length() < 20) {
+            throw new TamanhoNaoValidoException("Nome de Usuario muito longo.");
+        }
+
+        Usuario usuario =  mapperUsuarioRequestToUsuario.toModel(postUsuarioRequest);
          usuarioRepository.save(usuario);
 
-        PostUsuarioResponse usuarioResponse =  mapperUsuarioToUsuarioResponse.toResponse(usuario);
-
-        return usuarioResponse; 
+        return mapperUsuarioToUsuarioResponse.toResponse(usuario);
     }
 
     public Usuario obterUsuarios(Long id) {

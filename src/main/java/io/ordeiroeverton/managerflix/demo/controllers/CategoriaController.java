@@ -1,8 +1,8 @@
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,17 +15,19 @@ import io.ordeiroeverton.managerflix.demo.dtos.request.PostCategoriaRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostCategoriaResponse;
 import io.ordeiroeverton.managerflix.demo.models.Categoria;
 import io.ordeiroeverton.managerflix.demo.services.CategoriaService;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+import javax.validation.Valid;
+
+
 @RestController
 @RequestMapping("/categoria")
 public class CategoriaController {
 
-    private final CategoriaService categoriaService;
+    @Autowired
+    private CategoriaService categoriaService;
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<PostCategoriaResponse> cadastrarCategoria(@RequestBody @Validated PostCategoriaRequest postCategoriaRequest) {
+    public ResponseEntity<PostCategoriaResponse> cadastrarCategoria(@RequestBody @Valid PostCategoriaRequest postCategoriaRequest) {
         PostCategoriaResponse postCategoriaResponse = categoriaService.cadastrarCategoria(postCategoriaRequest);
 
        return ResponseEntity.created(null).body(postCategoriaResponse);

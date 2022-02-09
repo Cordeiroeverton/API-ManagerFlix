@@ -6,8 +6,6 @@ import lombok.Data;
 @Data
 public class PostUsuarioRequest {
 
-    private Long id;
-
     @NotBlank(message = "Campo nome necessário ser preenchido.")
-    private PostUsuarioRequest nome;
+    private String nome;
 }

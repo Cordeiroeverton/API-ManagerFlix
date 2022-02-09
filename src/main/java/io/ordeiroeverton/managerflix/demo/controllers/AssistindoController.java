@@ -1,5 +1,6 @@
 package io.ordeiroeverton.managerflix.demo.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,14 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.ordeiroeverton.managerflix.demo.models.Assistindo;
 import io.ordeiroeverton.managerflix.demo.services.AssistindoService;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+
+
 @RestController
 @RequestMapping("assistindo")
 public class AssistindoController {
 
-    private final AssistindoService assistindoService;
+    @Autowired
+    private AssistindoService assistindoService;
 
     @GetMapping("obter/{id}")
     public ResponseEntity<Assistindo> obter(@PathVariable Long id) {

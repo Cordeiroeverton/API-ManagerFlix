@@ -47,7 +47,7 @@ Para realziar testes da API é necessário que uma aplicação cliente que faça
 
 * [DTO](https://maven.apache.org/) - Objeto de Transferência de Dados (do inglês, Data transfer object, ou simplesmente DTO
 
-* [BANCO DE DADOS H2](https://maven.apache.org/) - H2 é um sistema de gerenciamento de banco de dados relacional escrito em Java. Ele pode ser incorporado em aplicativos Java ou executado no modo cliente-servidor.
+* [Banco de dados H2](https://maven.apache.org/) - H2 é um sistema de gerenciamento de banco de dados relacional escrito em Java. Ele pode ser incorporado em aplicativos Java ou executado no modo cliente-servidor.
 
 ## ✒️ Autor
 
