@@ -15,7 +15,6 @@ import io.ordeiroeverton.managerflix.demo.dtos.request.PostUsuarioRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostUsuarioResponse;
 import io.ordeiroeverton.managerflix.demo.models.Usuario;
 import io.ordeiroeverton.managerflix.demo.services.UsuarioService;
-
 import javax.validation.Valid;
 
 @RestController

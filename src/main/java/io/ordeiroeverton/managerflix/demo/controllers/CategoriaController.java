@@ -15,9 +15,7 @@ import io.ordeiroeverton.managerflix.demo.dtos.request.PostCategoriaRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostCategoriaResponse;
 import io.ordeiroeverton.managerflix.demo.models.Categoria;
 import io.ordeiroeverton.managerflix.demo.services.CategoriaService;
-
 import javax.validation.Valid;
-
 
 @RestController
 @RequestMapping("/categoria")
