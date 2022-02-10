@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import io.ordeiroeverton.managerflix.demo.models.Assistindo;
 import io.ordeiroeverton.managerflix.demo.services.AssistindoService;
 
-
-
 @RestController
 @RequestMapping("assistindo")
 public class AssistindoController {
