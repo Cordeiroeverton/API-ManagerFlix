@@ -21,7 +21,7 @@ public class UsuarioService {
     private final MapperUsuarioToUsuarioResponse mapperUsuarioToUsuarioResponse;
 
     public PostUsuarioResponse cadastrarUsuarios(PostUsuarioRequest postUsuarioRequest) {
-        if (postUsuarioRequest.getNome().length() < 20) {
+        if (postUsuarioRequest.getNome().length() >15) {
             throw new TamanhoNaoValidoException("Nome de Usuario muito longo.");
         }
 

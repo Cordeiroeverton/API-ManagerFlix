@@ -10,5 +10,4 @@ public class PostCategoriaResponse {
     private long id;
     private String nome;
     private String mensagem;
-
 }
