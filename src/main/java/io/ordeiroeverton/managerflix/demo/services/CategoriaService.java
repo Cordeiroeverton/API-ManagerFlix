@@ -21,7 +21,7 @@ public class CategoriaService {
     private final MapperCategoriaToCategoriaResponse mapperCategoriaToCategoriaResponse;
 
     public PostCategoriaResponse cadastrarCategoria(PostCategoriaRequest postCategoriaRequest) {
-        if (postCategoriaRequest.getNome().length() < 10) {
+        if (postCategoriaRequest.getNome().length() > 10) {
             throw new TamanhoNaoValidoException("Nome de categoria muito longo.");
         }
         Categoria categoria = mapperCategoriaRequestCategoria.toModel(postCategoriaRequest);

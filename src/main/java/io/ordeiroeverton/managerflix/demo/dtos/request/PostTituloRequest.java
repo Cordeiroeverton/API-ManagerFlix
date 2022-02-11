@@ -1,31 +1,29 @@
 package io.ordeiroeverton.managerflix.demo.dtos.request;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import lombok.Data;
 
 @Data
 public class PostTituloRequest {
 
-    @NotBlank(message = "O campo nome deve ser preenchido.")
+    @NotBlank
+    @Size(min = 10, message = "Campo nome deve ser preenchido.")
     private String nome;
 
-    @NotBlank(message = "O campo sinopse deve ser preenchido.")
+    @NotBlank
+    @Size(min = 2,message = "Campo sinopse deve ser preenchido.")
     private String sinopse;
 
-    @NotNull(message = "Campo temporadas deve ser preenchido.")
-    @Min(0)
-    @Max(40)
+    @NotBlank
+    @Size(min = 1, message = "Campo temporadas deve ser preenchido")
     private Integer temporadas;
 
-    @NotNull(message = "Campo epsodios deve ser preenchido")
-    @Min(0)
-    @Max(50)
+    @NotBlank
+    @Size(min = 1, message = "Campo epsodios deve ser preenchido")
     private Integer epsodios;
 
-    @NotBlank(message = "Campo duração deve ser preenchido.")
+    @NotBlank
+    @Size(min = 1,message = "Campo duração deve ser preenchido.")
     private String duracao;
 
 }

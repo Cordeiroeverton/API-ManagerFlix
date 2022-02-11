@@ -20,7 +20,7 @@ public class TituloService {
     private final MapperTituloToTituloResponse mapperTituloToTituloResponse;
 
     public PostTituloResponse cadastrar(PostTituloRequest postTituloRequest) {
-        if(postTituloRequest.getNome().length() < 20) {
+        if(postTituloRequest.getNome().length() > 20) {
             throw new TamanhoNaoValidoException("O nome não pode ser muito longo.");
         }
 
