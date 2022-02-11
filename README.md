@@ -50,7 +50,7 @@ Para realziar testes da API é necessário que uma aplicação cliente que faça
 ## 🛠️ Construído com
 
 * [Java](http://www.dropwizard.io/1.0.2/docs/) 
-* [Springbot](https://maven.apache.org/) 
+* [Spring boot](https://maven.apache.org/) 
 * [DTO](https://maven.apache.org/)  
 * [MapperStrucct](https://mapstruct.org/) 
 * [Banco de dados Mysql](https://www.mysql.com/)
