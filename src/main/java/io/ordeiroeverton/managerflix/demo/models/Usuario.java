@@ -14,6 +14,6 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private PostUsuarioRequest nome;
+    private String nome;
 
 }

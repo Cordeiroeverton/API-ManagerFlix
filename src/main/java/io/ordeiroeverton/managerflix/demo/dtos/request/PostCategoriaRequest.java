@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 public class PostCategoriaRequest {
 
-    @NotBlank(message = "O campo nome deve ser preenchido.")
+    @NotBlank(message= "Campo nome não pode ser vazio.")
     private String nome;
 }

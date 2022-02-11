@@ -1,8 +1,10 @@
 package io.ordeiroeverton.managerflix.demo.controllers;
 
 import java.util.List;
+
+import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,18 +17,18 @@ import io.ordeiroeverton.managerflix.demo.dtos.request.PostTituloRequest;
 import io.ordeiroeverton.managerflix.demo.dtos.response.PostTituloResponse;
 import io.ordeiroeverton.managerflix.demo.models.Titulo;
 import io.ordeiroeverton.managerflix.demo.services.TituloService;
-import lombok.RequiredArgsConstructor;
+import javax.validation.Valid;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("titulos")
 public class TituloController {
-  
-    private final TituloService titulosService;
+
+    @Autowired
+    private TituloService titulosService;
 
     @PostMapping("cadastrar")
-    public ResponseEntity<PostTituloResponse> cadastrar(@RequestBody @Validated PostTituloRequest posttTituloRequest) {
-        PostTituloResponse postTituloResponse = titulosService.cadastrar(posttTituloRequest);
+    public ResponseEntity<PostTituloResponse> cadastrar(@RequestBody @Valid PostTituloRequest postTituloRequest) {
+        PostTituloResponse postTituloResponse = titulosService.cadastrar(postTituloRequest);
 
         return ResponseEntity.created(null).body(postTituloResponse);
     }

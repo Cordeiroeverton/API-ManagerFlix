@@ -1,0 +1,8 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  managerflix:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=8692

@@ -1,4 +1,3 @@
-
 package io.ordeiroeverton.managerflix.demo.mappers;
 
 import org.mapstruct.Mapper;

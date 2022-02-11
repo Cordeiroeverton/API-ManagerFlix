@@ -11,6 +11,13 @@ O projeto ManagerFlix , O ManagerFlix é um controle de séries e filmes, sendo 
 <img src="https://ik.imagekit.io/mqcofkwbshx/BecaModeloInstancia___wVp3rBGZ.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1642716647130">
 
 
+# Instalação e execução.
+
+Obs: Necessário ter o Docker instalado.
+
+| docker compose up |
+
+
 # Endpoints
 Para realziar testes da API é necessário que uma aplicação cliente que faça requisições aos endpoints usando ferramenta Postman  ou Insomnia por meio do envio de requisições HTTP e obter retorno.
 
@@ -42,12 +49,14 @@ Para realziar testes da API é necessário que uma aplicação cliente que faça
 
 ## 🛠️ Construído com
 
-* [Java](http://www.dropwizard.io/1.0.2/docs/) - Linguagem usada
-* [Springbot](https://maven.apache.org/) - Framework usado
-
-* [DTO](https://maven.apache.org/) - Objeto de Transferência de Dados (do inglês, Data transfer object, ou simplesmente DTO
-
-* [BANCO DE DADOS H2](https://maven.apache.org/) - H2 é um sistema de gerenciamento de banco de dados relacional escrito em Java. Ele pode ser incorporado em aplicativos Java ou executado no modo cliente-servidor.
+* [Java](http://www.dropwizard.io/1.0.2/docs/) 
+* [Springbot](https://maven.apache.org/) 
+* [DTO](https://maven.apache.org/)  
+* [MapperStrucct](https://mapstruct.org/) 
+* [Banco de dados Mysql](https://www.mysql.com/)
+* [Docker](https://www.docker.com/)
+* [Lombok](https://projectlombok.org/)
+* [Open API](https://www.baeldung.com/spring-rest-openapi-documentation)
 
 ## ✒️ Autor
 
